@@ -5,28 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>资源中心</title>
 <style>
-  body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; }
-  .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
-  h1 { text-align: center; margin-bottom: 20px; }
+  body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; margin: 0; }
+  .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+  h1 { text-align: center; margin-bottom: 20px; font-size: 1.5em; }
   .buttons { display: flex; flex-direction: column; gap: 10px; }
-  .download-btn { padding: 15px; background: #4CAF50; color: #fff; border: none; border-radius: 5px; font-size: 16px; text-align: center; text-decoration: none; transition: background 0.3s; }
+  .download-btn { padding: 15px; background: #4CAF50; color: #fff; border: none; border-radius: 5px;
+                  font-size: 16px; text-align: center; text-decoration: none; transition: background 0.3s; word-break: break-word; }
   .download-btn:hover { background: #45a049; }
   .file-info { font-size: 12px; color: #555; margin-left: 5px; }
   .update-time { text-align: center; margin-top: 20px; color: #888; font-size: 14px; }
+  @media (max-width: 480px) {
+      .download-btn { font-size: 14px; padding: 12px; }
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>资源中心</h1>
   <div class="buttons">
-    <a class="download-btn" href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" target="_blank" style="background:#4CAF50">安卓安装包下载 (5.11 MB)</a>
-<a class="download-btn" href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" style="background:#4CAF50">安卓安装包下载 (4.22 MB)</a>
-<a class="download-btn" href="http://127.0.0.1:1026" target="_blank" style="background:#4CAF50">打开网页</a>
+    <a class="download-btn" href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk">安卓安装包下载 (5.11 MB)</a>
+<a class="download-btn" href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk">安卓安装包下载 (4.22 MB)</a>
+<a class="download-btn" href="http://127.0.0.1:1026" target="_blank" style="background:#4CAF50" data-status="1" data-base="http://127.0.0.1:1026">打开网页</a>
 
   </div>
   <div class="update-time">
-    更新日期: 2025-09-19 16:20:18
+    更新日期: 2025-09-19 17:11:31
   </div>
 </div>
+
+<script>
+  // 从 URL 获取参数值
+  function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const paramValue = getQueryParam('code'); // 假设传递参数名为 code
+      document.querySelectorAll('.download-btn').forEach(btn => {
+          const status = btn.getAttribute('data-status');
+          const baseUrl = btn.getAttribute('data-base');
+          if (status === '1' && paramValue && baseUrl) {
+              // 拼接参数到按钮地址
+              btn.href = baseUrl + paramValue;
+          }
+      });
+  });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资源中心</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; margin: 0; }
+  .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+  h1 { text-align: center; margin-bottom: 20px; font-size: 1.5em; }
+  .buttons { display: flex; flex-direction: column; gap: 10px; }
+  .download-btn { padding: 15px; background: #4CAF50; color: #fff; border: none; border-radius: 5px;
+                  font-size: 16px; text-align: center; text-decoration: none; transition: background 0.3s; word-break: break-word; }
+  .download-btn:hover { background: #45a049; }
+  .file-info { font-size: 12px; color: #555; margin-left: 5px; }
+  .update-time { text-align: center; margin-top: 20px; color: #888; font-size: 14px; }
+  @media (max-width: 480px) {
+      .download-btn { font-size: 14px; padding: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>资源中心</h1>
+  <div class="buttons">
+    <a class="download-btn" href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk">安卓安装包下载 (5.11 MB)</a>
+<a class="download-btn" href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk">安卓安装包下载 (4.22 MB)</a>
+<a class="download-btn" href="http://127.0.0.1:1026" target="_blank" style="background:#4CAF50" data-status="1" data-base="http://127.0.0.1:1026">打开网页</a>
+
+  </div>
+  <div class="update-time">
+    更新日期: 2025-09-19 17:11:31
+  </div>
+</div>
+
+<script>
+  // 从 URL 获取参数值
+  function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const paramValue = getQueryParam('code'); // 假设传递参数名为 code
+      document.querySelectorAll('.download-btn').forEach(btn => {
+          const status = btn.getAttribute('data-status');
+          const baseUrl = btn.getAttribute('data-base');
+          if (status === '1' && paramValue && baseUrl) {
+              // 拼接参数到按钮地址
+              btn.href = baseUrl + paramValue;
+          }
+      });
+  });
+</script>
 </body>
 </html>
