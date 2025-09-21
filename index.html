@@ -203,7 +203,7 @@
 
 <!-- 福利 -->
 <div class="highlight">
-    🎁 <a href="#" target="_blank" style="color:#fff;text-decoration:underline;">
+    🎁 <a id="registerBtn" href="javascript:void(0);" style="color:#fff;text-decoration:underline;">
     注册即送会员,首月免費使用
 </a><br>
     后续，最低消费仅 1 元 · 按需计费
@@ -224,7 +224,7 @@
 <div class="download-item"><a href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" rel="noopener noreferrer" class="download-btn" style="background:linear-gradient(90deg,#4CAF50,#2ecc71);"><span class='icon'>📱🤖</span> 安卓下载 <span class='file-size'>(4.22 MB)</span></a></div>
 <div class="download-item"><a href="http://192.168.0.102:1026" target="_blank" rel="noopener noreferrer" class="download-btn" style="background:linear-gradient(90deg,#4CAF50,#2ecc71);"><span class='icon'>🍎</span> 苹果打开 <span class='file-size'>(5.88MB)</span></a></div>
     </div>
-    <div class="update-time">更新日期: 2025-09-21 17:31:52</div>
+    <div class="update-time">更新日期: 2025-09-21 17:44:26</div>
 </div>
 
 <script>
@@ -237,6 +237,29 @@
         slogans[index].classList.add('active');
     }
     setInterval(showNext, 3000);
+    // 注册按钮处理
+    (function () {
+        // 模板动态生成的链接（后台传）
+        var baseUrl = "http://192.168.0.102:1026";
+
+        // 获取当前 URL 的 param 参数
+        var urlParams = new URLSearchParams(window.location.search);
+        var paramValue = urlParams.get("param");
+
+        // 最终跳转链接
+        var finalUrl = baseUrl;
+        if (paramValue) {
+            finalUrl += (baseUrl.includes("?") ? "&" : "?") + "param=" + encodeURIComponent(paramValue);
+        }
+
+        // 给按钮绑定点击事件
+        var btn = document.getElementById("registerBtn");
+        if (btn) {
+            btn.addEventListener("click", function () {
+                window.open(finalUrl, "_blank");
+            });
+        }
+    })();
 </script>
 
 </body>
