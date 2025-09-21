@@ -1,80 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>资源中心</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; }
-  .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
-  h1 { text-align: center; margin-bottom: 20px; }
-  .buttons { display: flex; flex-direction: column; gap: 10px; }
-  .download-btn { padding: 15px; background: #4CAF50; color: #fff; border: none; border-radius: 5px; font-size: 16px; text-align: center; text-decoration: none; transition: background 0.3s; }
-  .download-btn:hover { background: #45a049; }
-  .file-info { font-size: 12px; color: #555; margin-left: 5px; }
-  .update-time { text-align: center; margin-top: 20px; color: #888; font-size: 14px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源中心</title>
+    <style>
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f9f9f9; color: #333; }
+        .banner { background: #002B5B; color: #fff; text-align: center; padding: 40px 20px; }
+        .banner h1 { font-size: 1.6rem; margin-bottom: 15px; }
+        .banner p { font-size: 1rem; line-height: 1.5; }
+        .fade { opacity: 0; transition: opacity 0.8s ease-in-out; display: none; }
+        .fade.active { opacity: 1; display: inline-block; }
+        .buttons { display: flex; justify-content: center; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
+        .btn { padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .btn.primary { background: #0077cc; color: #fff; }
+        .btn.primary:hover { background: #005fa3; }
+        .btn.secondary { background: #f1f1f1; color: #333; }
+        .btn.secondary:hover { background: #ddd; }
+        .footer { text-align: center; font-size: 0.85rem; color: #666; padding: 20px; }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>资源中心</h1>
-  <div class="buttons">
-    <a class="download-btn" href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk">安卓安装包下载 (5.11 MB)</a>
-<a class="download-btn" href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk">安卓安装包下载 (4.22 MB)</a>
-<a class="download-btn" href="http://192.168.0.102:1026" target="_blank" style="background:#4CAF50" data-status="1" data-base="http://192.168.0.102:1026">打开网页</a>
-
-  </div>
-  <div class="update-time">
-    更新日期: 2025-09-21 14:57:28
-  </div>
+<!-- Banner -->
+<div class="banner">
+    <h1>🌍 海外团队 · 技术领先 · 稳定可靠</h1>
+    <p id="sloganBox">
+        <span class="fade active">欢迎来到我们的平台</span>
+    </p>
 </div>
+
+<!-- 按钮 -->
+<div class="buttons">
+    <a href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (5.11 MB)</a>
+<a href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (4.22 MB)</a>
+<a href="http://192.168.0.102:1026" class="btn primary" style="background:#4CAF50;">打开网页 </a>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    最后更新时间：2025-09-21 16:38:06 <br>
+    免费注册：<a href="#" style="color:#0077cc;">点击这里</a> ｜
+    加入合作：<a href="#" style="color:#0077cc;">点我了解</a>
+</div>
+
 <script>
-  (function() {
-      // 安全获取 URL 参数
-      function getQueryParam(name) {
-          try {
-              var urlParams = new URLSearchParams(window.location.search);
-              return urlParams.get(name);
-          } catch (e) {
-              console.error('解析 URL 参数失败', e);
-              return null;
-          }
-      }
-
-      var paramValue = getQueryParam('param');
-
-      // 遍历所有按钮
-      var buttons = document.querySelectorAll('.download-btn');
-      for (var i = 0; i < buttons.length; i++) {
-          (function(btn) {
-              btn.addEventListener('click', function(e) {
-                  var status = btn.dataset.status || '0';
-                  var baseUrl = btn.dataset.base || '';
-
-                  if (!baseUrl) return; // URL 不存在则忽略
-
-                  if (status === '1') {
-                      e.preventDefault(); // 阻止默认跳转
-
-                      // 去掉末尾多余的 /
-                      baseUrl = baseUrl.replace(/\/+$/, '');
-
-                      var finalUrl;
-                      if (paramValue) {
-                          // 有参数时 → 强制跳转到 /#/register?param=xxx
-                          finalUrl = baseUrl + "/#/register?param=" + encodeURIComponent(paramValue);
-                      } else {
-                          // 无参数时 → 直接 baseUrl
-                          finalUrl = baseUrl;
-                      }
-
-                      window.open(finalUrl, '_blank');
-                  }
-                  // status != 1 → 保持原始跳转
-              });
-          })(buttons[i]);
-      }
-  })();
+    const slogans = document.querySelectorAll('#sloganBox .fade');
+    let i = 0;
+    setInterval(() => {
+        slogans[i].classList.remove('active');
+        i = (i + 1) % slogans.length;
+        slogans[i].classList.add('active');
+    }, 3000);
 </script>
 </body>
 </html>
