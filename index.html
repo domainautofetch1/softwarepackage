@@ -13,63 +13,170 @@
             color: #fff;
             text-align: center;
         }
+
+        /* banner 保持原样但加薄遮罩提高可读性 */
         .banner {
             padding: 60px 20px 40px;
             background: url("https://picsum.photos/800/600?tech") no-repeat center/cover;
             color: #fff;
             position: relative;
+            overflow: hidden;
+        }
+        .banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+            pointer-events: none;
         }
         .banner h1 {
+            position: relative;
+            z-index: 1;
             font-size: 24px;
             font-weight: bold;
             margin: 0;
             text-shadow: 0 3px 8px rgba(0,0,0,0.6);
         }
-        .banner p { margin-top: 10px; font-size: 14px; opacity: 0.9; min-height: 20px; }
+        .banner p {
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.95;
+            min-height: 20px;
+        }
+
         .fade { opacity: 0; transition: opacity 1s ease; position: absolute; width: 100%; left: 0; }
         .fade.active { opacity: 1; position: relative; }
+
         .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 30px 20px; }
         .feature {
-            background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 10px;
-            font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 20px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.28);
         }
+
         .highlight {
             background: linear-gradient(90deg, #ff416c, #ff4b2b);
-            margin: 30px 20px; padding: 20px; border-radius: 12px;
-            font-size: 16px; font-weight: bold; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            margin: 30px 20px;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.35);
         }
+
         .cta {
             display: inline-block; margin: 20px auto; padding: 15px 40px;
             font-size: 16px; font-weight: bold; color: #fff;
             background: linear-gradient(90deg, #4CAF50, #2ecc71);
-            border-radius: 30px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease;
+            border-radius: 30px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
-        .cta:hover { transform: scale(1.05); }
+        .cta:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+
+        /* ===== 下载区（美化，兼容原有类名） ===== */
         .download-container {
-            max-width: 600px; margin: 40px auto;
-            background: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 34px auto;
+            background: rgba(255,255,255,0.04);
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.38);
         }
-        .download-container h2 { margin-bottom: 15px; font-size: 18px; }
-        .buttons { display: flex; flex-direction: column; gap: 10px; }
+        .download-container h2 {
+            margin-bottom: 14px;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* 列表垂直排列（手机首选） */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 6px;
+        }
+
+        .download-item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 改造 download-btn：左右布局（左：图标+文字，右：文件大小/次要信息） */
         .download-btn {
-            padding: 14px; background: #4CAF50; color: #fff;
-            border-radius: 8px; font-size: 15px; text-decoration: none; transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            width: 100%;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.32);
+            transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+            -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
         }
-        .download-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+
+        /* 左侧容器：图标 + 标题 */
+        .download-btn .left { display:flex; align-items:center; gap:12px; text-align:left; }
+        .btn-icon {
+            width: 46px;
+            height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.06);
+            font-size: 18px;
+            flex-shrink: 0;
         }
-        .file-info { font-size: 12px; color: #ccc; }
-        .update-time { text-align: center; margin-top: 10px; font-size: 12px; color: #aaa; }
-        .icon {
-            margin-right: 6px;
+        .label { display:block; line-height:1; }
+
+        /* 右侧信息 */
+        .right { display:flex; align-items:center; gap:8px; }
+        .file-size { font-size:13px; color: rgba(255,255,255,0.95); opacity:0.95; }
+
+        /* hover / active */
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+        .download-btn:active { transform: translateY(0); }
+
+        /* 禁用样式（后端若加 class 'disabled'） */
+        .download-btn.disabled {
+            opacity: 0.56;
+            pointer-events: none;
+            filter: grayscale(8%);
+            transform: none;
+            box-shadow: none;
         }
-        .file-size {
-            font-size: 13px;
-            color: #ccc;
-            margin-left: 4px;
+
+        /* 预定义平台类（后端可输出 .android/.ios/.win/.web），但保留你原本内联背景覆盖能力 */
+        .download-btn.android { background: linear-gradient(90deg,#4CAF50,#2ecc71); }
+        .download-btn.ios     { background: linear-gradient(90deg,#ff4b2b,#ff416c); }
+        .download-btn.win     { background: linear-gradient(90deg,#1e3c72,#2a5298); }
+        .download-btn.web     { background: linear-gradient(90deg,#0077cc,#005fa3); }
+        .download-btn.default { background: linear-gradient(90deg,#4CAF50,#2ecc71); }
+
+        /* 保持向后兼容：如果你仍然在 a 上使用内联 style background，会覆盖这些 class */
+        /* 移动端微调 */
+        @media (max-width: 420px) {
+            .btn-icon { width: 40px; height: 40px; font-size: 18px; }
+            .download-btn { padding: 12px; font-size: 15px; }
+            .download-container { padding: 14px; margin: 18px 10px; border-radius: 12px; }
+            .download-container h2 { font-size: 16px; }
         }
     </style>
 </head>
@@ -79,7 +186,7 @@
 <div class="banner">
     <h1>🌍 海外团队 · 技术领先 · 稳定可靠</h1>
     <p id="sloganBox">
-        <span class="fade active">全球视野，雄厚实力，为您打造高质量平台</span>
+        <span class="fade active">全球视野，雄厚实力，为您打造高质量服务平台</span>
         <span class="fade">极速系统 · 毫秒级响应 · 安全稳定</span>
         <span class="fade">创新驱动 · 持续进化 · 引领未来</span>
         <span class="fade">服务至上 · 24小时客服 · 有求必应</span>
@@ -97,9 +204,9 @@
 <!-- 福利 -->
 <div class="highlight">
     🎁 <a href="#" target="_blank" style="color:#fff;text-decoration:underline;">
-    注册即送会员
+    注册即送会员,首月免費使用
 </a><br>
-    最低消费仅 1 元 · 按需计费
+    后续，最低消费仅 1 元 · 按需计费
 </div>
 
 <!-- 合作邀请 -->
@@ -117,7 +224,7 @@
 <div class="download-item"><a href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" rel="noopener noreferrer" class="download-btn" style="background:linear-gradient(90deg,#4CAF50,#2ecc71);"><span class='icon'>📱🤖</span> 安卓下载 <span class='file-size'>(4.22 MB)</span></a></div>
 <div class="download-item"><a href="http://192.168.0.102:1026" target="_blank" rel="noopener noreferrer" class="download-btn" style="background:linear-gradient(90deg,#4CAF50,#2ecc71);"><span class='icon'>🍎</span> 苹果打开 </a></div>
     </div>
-    <div class="update-time">更新日期: 2025-09-21 17:15:18</div>
+    <div class="update-time">更新日期: 2025-09-21 17:24:29</div>
 </div>
 
 <script>
