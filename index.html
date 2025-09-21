@@ -21,11 +21,11 @@
   <div class="buttons">
     <a class="download-btn" href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk">安卓安装包下载 (5.11 MB)</a>
 <a class="download-btn" href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" target="_blank" style="background:#4CAF50" data-status="0" data-base="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk">安卓安装包下载 (4.22 MB)</a>
-<a class="download-btn" href="http://192.168.0.102:1026" target="_blank" style="background:#4CAF50" data-status="1" data-base="http://192.168.0.102:1026">打开网页</a>
+<a class="download-btn" href="http://192.168.0.102:1026#/register" target="_blank" style="background:#4CAF50" data-status="1" data-base="http://192.168.0.102:1026#/register">打开网页</a>
 
   </div>
   <div class="update-time">
-    更新日期: 2025-09-19 17:27:12
+    更新日期: 2025-09-21 14:41:04
   </div>
 </div>
 
@@ -34,23 +34,14 @@
       // 安全获取 URL 参数
       function getQueryParam(name) {
           try {
-              var search = window.location.search.substring(1); // 去掉 '?'
-              var params = search.split('&');
-              for (var i = 0; i < params.length; i++) {
-                  var pair = params[i].split('=');
-                  if (decodeURIComponent(pair[0]) === name) {
-                      return pair[1] ? decodeURIComponent(pair[1]) : null;
-                  }
-              }
-              return null;
+              var urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get(name);
           } catch (e) {
               console.error('解析 URL 参数失败', e);
               return null;
           }
       }
-
       var paramValue = getQueryParam('param');
-
       // 遍历所有按钮
       var buttons = document.querySelectorAll('.download-btn');
       for (var i = 0; i < buttons.length; i++) {
