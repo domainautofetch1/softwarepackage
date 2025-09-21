@@ -5,52 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>资源中心</title>
     <style>
-        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f9f9f9; color: #333; }
-        .banner { background: #002B5B; color: #fff; text-align: center; padding: 40px 20px; }
-        .banner h1 { font-size: 1.6rem; margin-bottom: 15px; }
-        .banner p { font-size: 1rem; line-height: 1.5; }
-        .fade { opacity: 0; transition: opacity 0.8s ease-in-out; display: none; }
-        .fade.active { opacity: 1; display: inline-block; }
-        .buttons { display: flex; justify-content: center; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
-        .btn { padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
-        .btn.primary { background: #0077cc; color: #fff; }
-        .btn.primary:hover { background: #005fa3; }
-        .btn.secondary { background: #f1f1f1; color: #333; }
-        .btn.secondary:hover { background: #ddd; }
-        .footer { text-align: center; font-size: 0.85rem; color: #666; padding: 20px; }
+        body {
+            margin: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #0f2027;
+            background: linear-gradient(180deg, #2c5364, #203a43, #0f2027);
+            color: #fff;
+            text-align: center;
+        }
+        .banner {
+            padding: 60px 20px 40px;
+            background: url("https://picsum.photos/800/600?tech") no-repeat center/cover;
+            color: #fff;
+            position: relative;
+        }
+        .banner h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+        }
+        .banner p { margin-top: 10px; font-size: 14px; opacity: 0.9; min-height: 20px; }
+        .fade { opacity: 0; transition: opacity 1s ease; position: absolute; width: 100%; left: 0; }
+        .fade.active { opacity: 1; position: relative; }
+        .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 30px 20px; }
+        .feature {
+            background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 10px;
+            font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .highlight {
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            margin: 30px 20px; padding: 20px; border-radius: 12px;
+            font-size: 16px; font-weight: bold; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .cta {
+            display: inline-block; margin: 20px auto; padding: 15px 40px;
+            font-size: 16px; font-weight: bold; color: #fff;
+            background: linear-gradient(90deg, #4CAF50, #2ecc71);
+            border-radius: 30px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease;
+        }
+        .cta:hover { transform: scale(1.05); }
+        .download-container {
+            max-width: 600px; margin: 40px auto;
+            background: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .download-container h2 { margin-bottom: 15px; font-size: 18px; }
+        .buttons { display: flex; flex-direction: column; gap: 10px; }
+        .download-btn {
+            padding: 14px; background: #4CAF50; color: #fff;
+            border-radius: 8px; font-size: 15px; text-decoration: none; transition: background 0.3s;
+        }
+        .download-btn:hover { background: #45a049; }
+        .file-info { font-size: 12px; color: #ccc; }
+        .update-time { text-align: center; margin-top: 10px; font-size: 12px; color: #aaa; }
     </style>
 </head>
 <body>
+
 <!-- Banner -->
 <div class="banner">
     <h1>🌍 海外团队 · 技术领先 · 稳定可靠</h1>
     <p id="sloganBox">
-        <span class="fade active">欢迎来到我们的平台</span>
+        <span class="fade active">全球视野，雄厚实力，为您打造高质量平台</span>
+        <span class="fade">极速系统 · 毫秒级响应 · 安全稳定</span>
+        <span class="fade">创新驱动 · 持续进化 · 引领未来</span>
+        <span class="fade">服务至上 · 24小时客服 · 有求必应</span>
     </p>
 </div>
 
-<!-- 按钮 -->
-<div class="buttons">
-    <a href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (5.11 MB)</a>
-<a href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (4.22 MB)</a>
-<a href="http://192.168.0.102:1026" class="btn primary" style="background:#4CAF50;">打开网页 </a>
+<!-- 产品优势 -->
+<div class="features">
+    <div class="feature">🤖 AI驱动<br>智能出票</div>
+    <div class="feature">💡 模板随心<br>千店千面</div>
+    <div class="feature">👩‍💻 专属客服<br>全天候支持</div>
+    <div class="feature">📊 多数据分析<br>精准洞察</div>
 </div>
 
-<!-- 底部 -->
-<div class="footer">
-    最后更新时间：2025-09-21 16:45:10 <br>
-    免费注册：<a href="#" style="color:#0077cc;">点击这里</a> ｜
-    加入合作：<a href="#" style="color:#0077cc;">点我了解</a>
+<!-- 福利 -->
+<div class="highlight">
+    🎁 <a href="#" target="_blank" style="color:#fff;text-decoration:underline;">
+    注册即送会员
+</a><br>
+    最低消费仅 1 元 · 按需计费
+</div>
+
+<!-- 合作邀请 -->
+<div>
+    <h2>🤝 合作伙伴招募</h2>
+    <p>无风险 · 无负担 · 轻轻松松月入过万</p>
+    <a href="#" class="cta" target="_blank">立即加入</a>
+</div>
+
+<!-- 下载区 -->
+<div class="download-container">
+    <h2>📥 安装包下载</h2>
+    <div class="buttons">
+        <a href="https://domainautofetch1.github.io/softwarepackage/2025/09/app-2.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (5.11 MB)</a>
+<a href="https://domainautofetch.github.io/softwarepackage/2025/09/app-3.apk" class="btn primary" style="background:#4CAF50;">安卓安装包下载 (4.22 MB)</a>
+<a href="http://192.168.0.102:1026" class="btn primary" style="background:#4CAF50;">打开网页 </a>
+    </div>
+    <div class="update-time">更新日期: 2025-09-21 16:47:41</div>
 </div>
 
 <script>
+    // slogan 轮播
     const slogans = document.querySelectorAll('#sloganBox .fade');
-    let i = 0;
-    setInterval(() => {
-        slogans[i].classList.remove('active');
-        i = (i + 1) % slogans.length;
-        slogans[i].classList.add('active');
-    }, 3000);
+    let index = 0;
+    function showNext() {
+        slogans[index].classList.remove('active');
+        index = (index + 1) % slogans.length;
+        slogans[index].classList.add('active');
+    }
+    setInterval(showNext, 3000);
 </script>
+
 </body>
 </html>
